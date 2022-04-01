@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "353556442225",
+    "project_id": "yapye-food-app",
+    "storage_bucket": "yapye-food-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353556442225:android:6a7303b0c58f96131abfd0",
+        "android_client_info": {
+          "package_name": "com.example.yapye_mobile_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353556442225-ers5uh7k82aq0rfjsueses2cbqppjjv9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.yapye_mobile_app",
+            "certificate_hash": "31e0edbdc7c49bdca5f60aa4b131da45519dd59a"
+          }
+        },
+        {
+          "client_id": "353556442225-97hq79a52f375hgdfblahkj5d31u1d12.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuD3v23kG4M_UsD0K9R3WXY-MztqE3NR0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353556442225-97hq79a52f375hgdfblahkj5d31u1d12.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

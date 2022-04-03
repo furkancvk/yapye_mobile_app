@@ -99,6 +99,7 @@ class _Home extends State<Home> {
                       ],
                     ),
                   ),
+                  const SizedBox(height: 40),
                   StreamBuilder<QuerySnapshot>(
                     stream: _foodsStream,
                     builder: (BuildContext context,

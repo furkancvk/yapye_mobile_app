@@ -114,7 +114,7 @@ class AppCards {
         }), );
       },
       child: Card(
-        margin: const EdgeInsets.only(top: 40),
+        margin: const EdgeInsets.only(bottom: 40),
         elevation: 5,
         shadowColor: AppColors.dark,
         clipBehavior: Clip.antiAlias,

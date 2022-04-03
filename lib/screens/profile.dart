@@ -1,7 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:yapye_mobile_app/constants.dart';
 import 'package:yapye_mobile_app/screens/welcome.dart';
+import 'package:yapye_mobile_app/widgets/profile_bio.dart';
+
+import '../widgets/profile_likes.dart';
+import '../widgets/profile_menu.dart';
+import '../widgets/profile_recipe.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -11,8 +17,10 @@ class Profile extends StatefulWidget {
 }
 
 class _Profile extends State<Profile> {
+  List<Widget> contents = [ProfileRecipe(), ProfileLikes(), ProfileMenu(), ProfileBio()];
   List<bool> isSelected = [false, false, false];
   final _auth = FirebaseAuth.instance;
+  int currentContentIndex = 3;
 
   void logout() async {
     await _auth.signOut();
@@ -23,37 +31,36 @@ class _Profile extends State<Profile> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          shadowColor: Colors.transparent,
-          actions: [
-            IconButton(
-              padding: const EdgeInsets.only(right: 20),
-              onPressed: () {},
-              icon: const Icon(
-                Icons.more_horiz_rounded,
-                size: 35,
-              ),
-            )
-          ],
-        ),
         body: ListView(
           padding: const EdgeInsets.all(20),
           children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.more_horiz_rounded,
+                    size: 35,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
             const CircleAvatar(
               minRadius: 60,
             ),
             const SizedBox(height: 20),
             Column(
-              children: const [
+              children: [
                 Text(
-                  "username",
-                  style: TextStyle(
+                  _auth.currentUser!.displayName.toString(),
+                  style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text(
+                const Text(
                   "the level of the user",
                   style: TextStyle(
                     fontSize: 14,
@@ -109,6 +116,7 @@ class _Profile extends State<Profile> {
                     ],
                     onPressed: (index) => {
                       setState(() {
+                        currentContentIndex = index;
                         for (int buttonIndex = 0;
                             buttonIndex < isSelected.length;
                             buttonIndex++) {
@@ -125,6 +133,8 @@ class _Profile extends State<Profile> {
                 ),
               ],
             ),
+            const SizedBox(height: 30),
+            contents[currentContentIndex],
           ],
         ),
         floatingActionButton: FloatingActionButton(

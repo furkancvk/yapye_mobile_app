@@ -11,6 +11,7 @@ class Profile extends StatefulWidget {
 }
 
 class _Profile extends State<Profile> {
+  List<bool> isSelected = [false, false, false];
   final _auth = FirebaseAuth.instance;
 
   void logout() async {
@@ -22,26 +23,109 @@ class _Profile extends State<Profile> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "username: ${_auth.currentUser!.displayName}",
-                style: const TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                ),
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          shadowColor: Colors.transparent,
+          actions: [
+            IconButton(
+              padding: const EdgeInsets.only(right: 20),
+              onPressed: () {},
+              icon: const Icon(
+                Icons.more_horiz_rounded,
+                size: 35,
               ),
-              Text(
-                "email: ${_auth.currentUser!.email}",
-                style: const TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
+            )
+          ],
+        ),
+        body: ListView(
+          padding: const EdgeInsets.all(20),
+          children: [
+            const CircleAvatar(
+              minRadius: 60,
+            ),
+            const SizedBox(height: 20),
+            Column(
+              children: const [
+                Text(
+                  "username",
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-            ],
-          ),
+                Text(
+                  "the level of the user",
+                  style: TextStyle(
+                    fontSize: 14,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: AppColors.orange,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: ToggleButtons(
+                    selectedColor: AppColors.light,
+                    color: AppColors.light,
+                    fillColor: AppColors.orangeAccent,
+                    borderRadius: BorderRadius.circular(8),
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.all(16),
+                        child: Text(
+                          "Tariflerim",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(16),
+                        child: Text(
+                          "Beğendiklerim",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(16),
+                        child: Text(
+                          "Menüm",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ),
+                    ],
+                    onPressed: (index) => {
+                      setState(() {
+                        for (int buttonIndex = 0;
+                            buttonIndex < isSelected.length;
+                            buttonIndex++) {
+                          if (buttonIndex == index) {
+                            isSelected[buttonIndex] = true;
+                          } else {
+                            isSelected[buttonIndex] = false;
+                          }
+                        }
+                      }),
+                    },
+                    isSelected: isSelected,
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
         floatingActionButton: FloatingActionButton(
           child: const Icon(

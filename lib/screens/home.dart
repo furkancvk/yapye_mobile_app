@@ -24,79 +24,83 @@ class _Home extends State<Home> {
       body: SafeArea(
         child: ListView(
           children: <Widget>[
-            Stack(
-              children: [
-                Container(
-                  clipBehavior: Clip.antiAlias,
-                  width: MediaQuery.of(context).size.width,
-                  height: 280,
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.dark.withOpacity(.6),
-                        blurRadius: 10.0,
-                        spreadRadius: 2.0,
-                        offset: const Offset(0, 4),
-                      )
-                    ],
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(8),
-                      bottomRight: Radius.circular(8),
-                    ),
-                  ),
-                  child: Image.network(
-                    "https://images.unsplash.com/photo-1512152272829-e3139592d56f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-                    fit: BoxFit.cover,
+            GestureDetector(
+              onTap: () {},
+              child: Card(
+                margin: EdgeInsets.zero,
+                elevation: 5,
+                shadowColor: AppColors.dark,
+                clipBehavior: Clip.antiAlias,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(8),
+                    bottomRight: Radius.circular(8),
                   ),
                 ),
-                Positioned.fill(
-                  child: Align(
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(8),
-                          bottomRight: Radius.circular(8),
+                child: Stack(
+                  children: [
+                    Image.network(
+                      "https://images.unsplash.com/photo-1512152272829-e3139592d56f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+                      width: double.infinity,
+                      height: 280,
+                      fit: BoxFit.cover,
+                    ),
+                    Positioned.fill(
+                      child: Align(
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(8),
+                              bottomRight: Radius.circular(8),
+                            ),
+                            gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment(.2, 1.5),
+                              colors: [
+                                AppColors.orange,
+                                Colors.black12,
+                              ],
+                            ),
+                          ),
                         ),
-                        gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment(.2, 1.5),
-                          colors: [
-                            AppColors.orange,
-                            Colors.black12,
+                      ),
+                    ),
+                    const Positioned(
+                      top: 20,
+                      left: 20,
+                      child: Text(
+                        " Günün\nMenüsü",
+                        style: TextStyle(
+                          fontSize: 30,
+                          color: AppColors.light,
+                          fontWeight: FontWeight.bold,
+                          shadows: [
+                            Shadow(
+                              color: AppColors.dark,
+                              offset: Offset(0, 2),
+                              blurRadius: 10,
+                            ),
                           ],
                         ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
-                const Positioned(
-                  top: 20,
-                  left: 20,
-                  child: Text(
-                    " Günün\nMenüsü",
-                    style: TextStyle(
-                      fontSize: 30,
-                      color: AppColors.light,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 children: [
-                  Container(
-                    child: const Center(child: Text('Reklamsssss')),
-                    decoration: const BoxDecoration(
-                        color: Color.fromRGBO(242, 135, 5, 1),
-                        borderRadius: BorderRadius.all(Radius.circular(8))),
-                    height: MediaQuery.of(context).size.height * 0.15,
+                  AppCards.homeAdsCard(
+                    "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
+                    "Kayseri Doydum'da %50 indirim",
                   ),
                   const SizedBox(height: 20),
-                  AppForm.appTextFormField(
-                    hintText: 'Yemek ara...',
+                  AppForm.appSearchField(
+                    hintText: isSwitched
+                        ? "Malzeme ismi ile ara..."
+                        : "Yemek ismi ile ara...",
                     controller: searchController,
                     onSaved: (hello) => {},
                   ),
@@ -116,11 +120,10 @@ class _Home extends State<Home> {
                         onChanged: (value) {
                           setState(() {
                             isSwitched = value;
-                            print(isSwitched);
                           });
                         },
                         activeTrackColor: Colors.orangeAccent,
-                        activeColor: Color.fromRGBO(242, 125, 5, 1),
+                        activeColor: AppColors.orange,
                       ),
                       Text(
                         'malzeme İsmi',

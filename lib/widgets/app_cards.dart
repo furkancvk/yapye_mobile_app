@@ -109,9 +109,12 @@ class AppCards {
   static Widget homeFoodCard(Map food, context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return Recipe(food: food);
-        }), );
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) {
+            return Recipe(food: food);
+          }),
+        );
       },
       child: Card(
         margin: const EdgeInsets.only(bottom: 40),
@@ -123,6 +126,8 @@ class AppCards {
           children: [
             Image.network(
               food['image'],
+              width: double.infinity,
+              height: 250,
               fit: BoxFit.cover,
             ),
             Positioned.fill(
@@ -176,6 +181,57 @@ class AppCards {
                     ],
                   ),
                 ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  static Widget homeAdsCard(String image, String text) {
+    return GestureDetector(
+      onTap: () {},
+      child: Card(
+        elevation: 5,
+        shadowColor: AppColors.dark,
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        child: Stack(
+          children: [
+            Image.network(
+              image,
+              width: double.infinity,
+              height: 140,
+              fit: BoxFit.cover,
+            ),
+            Positioned.fill(
+              child: Align(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: AppColors.orange.withOpacity(.6),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 60,
+              right: 25,
+              bottom: 20,
+              child: Text(
+                text,
+                style: const TextStyle(
+                  color: AppColors.light,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 23,
+                  shadows: [
+                    Shadow(
+                      color: AppColors.dark,
+                      offset: Offset(0, 2),
+                      blurRadius: 10,
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

@@ -85,6 +85,47 @@ class AppForm {
     );
   }
 
+  static Widget appSearchField({
+    required String hintText,
+    required TextEditingController controller,
+    required void Function(String?) onSaved,
+  }) {
+    return TextFormField(
+      controller: controller,
+      decoration: InputDecoration(
+        suffixIcon: const Icon(Icons.search),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            width: 3,
+            color: AppColors.dark.withOpacity(.4),
+          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+            width: 3,
+            color: AppColors.orange,
+          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        contentPadding: const EdgeInsets.only(left: 15),
+        hintText: hintText,
+        hintStyle: TextStyle(
+          fontWeight: FontWeight.w700,
+          fontSize: 16,
+          color: AppColors.dark.withOpacity(.4),
+        ),
+      ),
+      style: TextStyle(
+        fontWeight: FontWeight.w700,
+        fontSize: 16,
+        color: AppColors.dark.withOpacity(.6),
+      ),
+      onSaved: onSaved,
+      onChanged: onSaved,
+    );
+  }
+
   static Widget appCheckbox({
     required String label,
     double? fontSize = 14,

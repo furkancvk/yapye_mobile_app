@@ -32,15 +32,20 @@ class _Welcome extends State<Welcome> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.only(left: 20, top: 50, right: 20, bottom: 20),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.only(
+            left: 20,
+            top: 50,
+            right: 20,
+            bottom: 20,
+          ),
           child: Column(
             children: [
               Image.asset("assets/images/logo.png"),
               const SizedBox(height: 50),
-              AppForm.AppToggleButtons(changeCurrentForm),
+              AppForm.appToggleButtons(changeCurrentForm),
               const SizedBox(height: 30),
-              currentForm ? forms[0] : forms[1]
+              currentForm ? forms[0] : forms[1],
             ],
           ),
         ),

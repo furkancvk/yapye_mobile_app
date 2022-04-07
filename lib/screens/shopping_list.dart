@@ -35,7 +35,7 @@ class _ShoppingList extends State<ShoppingList> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              AppForm.AppTextFormField(
+              AppForm.appTextFormField(
                 hintText: 'Yemeğe göre malzeme ara...',
                 controller: searchController,
                 onSaved: onSavedAppTextFormField,
@@ -76,15 +76,15 @@ class _ShoppingList extends State<ShoppingList> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      AppForm.AppTextButtonIcon(
+                      AppForm.appTextButtonIcon(
                           icon: Icon(Icons.add, color: Colors.orange),
                           label: 'Domates',
                           onPressed: () => print('31')),
-                      AppForm.AppTextButtonIcon(
+                      AppForm.appTextButtonIcon(
                           icon: Icon(Icons.add, color: Colors.orange),
                           label: 'Patates',
                           onPressed: () => print('31')),
-                      AppForm.AppTextButtonIcon(
+                      AppForm.appTextButtonIcon(
                           icon: Icon(Icons.add, color: Colors.orange),
                           label: 'Süt 1L',
                           onPressed: () => print('31')),
@@ -93,15 +93,15 @@ class _ShoppingList extends State<ShoppingList> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      AppForm.AppTextButtonIcon(
+                      AppForm.appTextButtonIcon(
                           icon: Icon(Icons.add, color: Colors.orange),
                           label: 'Patlıcan',
                           onPressed: () => print('31')),
-                      AppForm.AppTextButtonIcon(
+                      AppForm.appTextButtonIcon(
                           icon: Icon(Icons.add, color: Colors.orange),
                           label: 'Su 5L',
                           onPressed: () => print('31')),
-                      AppForm.AppTextButtonIcon(
+                      AppForm.appTextButtonIcon(
                           icon: Icon(Icons.add, color: Colors.orange),
                           label: 'Yeşil Biber',
                           onPressed: () => print('31')),
@@ -110,15 +110,15 @@ class _ShoppingList extends State<ShoppingList> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      AppForm.AppTextButtonIcon(
+                      AppForm.appTextButtonIcon(
                           icon: Icon(Icons.add, color: Colors.orange),
                           label: 'Maydanoz',
                           onPressed: () => print('31')),
-                      AppForm.AppTextButtonIcon(
+                      AppForm.appTextButtonIcon(
                           icon: Icon(Icons.add, color: Colors.orange),
                           label: 'Toz Şeker',
                           onPressed: () => print('31')),
-                      AppForm.AppTextButtonIcon(
+                      AppForm.appTextButtonIcon(
                           icon: Icon(Icons.add, color: Colors.orange),
                           label: 'Un',
                           onPressed: () => print('31')),
@@ -127,40 +127,40 @@ class _ShoppingList extends State<ShoppingList> {
                 ],
               ),
               AppCards.ShoppingListCard(
-                name: "Domates",
-                type: "Sebze",
-                price: "10 TL",
-                market: "BİM",
-                image: "https://tariflerleyemekler.com/yemek/barbeku-soslu-tavuk.webp"
-              ),
+                  name: "Domates",
+                  type: "Sebze",
+                  price: "10 TL",
+                  market: "BİM",
+                  image:
+                      "https://tariflerleyemekler.com/yemek/barbeku-soslu-tavuk.webp"),
               AppCards.ShoppingListCard(
                   name: "Domates",
                   type: "Sebze",
                   price: "10 TL",
                   market: "BİM",
-                  image: "https://tariflerleyemekler.com/yemek/barbeku-soslu-tavuk.webp"
-              ),
+                  image:
+                      "https://tariflerleyemekler.com/yemek/barbeku-soslu-tavuk.webp"),
               AppCards.ShoppingListCard(
                   name: "Domates",
                   type: "Sebze",
                   price: "10 TL",
                   market: "BİM",
-                  image: "https://tariflerleyemekler.com/yemek/barbeku-soslu-tavuk.webp"
-              ),
+                  image:
+                      "https://tariflerleyemekler.com/yemek/barbeku-soslu-tavuk.webp"),
               AppCards.ShoppingListCard(
                   name: "Domates",
                   type: "Sebze",
                   price: "10 TL",
                   market: "BİM",
-                  image: "https://tariflerleyemekler.com/yemek/barbeku-soslu-tavuk.webp"
-              ),
+                  image:
+                      "https://tariflerleyemekler.com/yemek/barbeku-soslu-tavuk.webp"),
               AppCards.ShoppingListCard(
                   name: "Domates",
                   type: "Sebze",
                   price: "10 TL",
                   market: "BİM",
-                  image: "https://tariflerleyemekler.com/yemek/barbeku-soslu-tavuk.webp"
-              ),
+                  image:
+                      "https://tariflerleyemekler.com/yemek/barbeku-soslu-tavuk.webp"),
             ],
           ),
         ),

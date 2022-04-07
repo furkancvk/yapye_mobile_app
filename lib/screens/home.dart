@@ -24,16 +24,64 @@ class _Home extends State<Home> {
       body: SafeArea(
         child: ListView(
           children: <Widget>[
-            Container(
-              decoration: const BoxDecoration(
-                color: Color.fromRGBO(242, 135, 5, 1),
-                borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(8),
-                  bottomLeft: Radius.circular(8),
+            Stack(
+              children: [
+                Container(
+                  clipBehavior: Clip.antiAlias,
+                  width: MediaQuery.of(context).size.width,
+                  height: 280,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.dark.withOpacity(.6),
+                        blurRadius: 10.0,
+                        spreadRadius: 2.0,
+                        offset: const Offset(0, 4),
+                      )
+                    ],
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(8),
+                      bottomRight: Radius.circular(8),
+                    ),
+                  ),
+                  child: Image.network(
+                    "https://images.unsplash.com/photo-1512152272829-e3139592d56f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              height: MediaQuery.of(context).size.height * 0.30,
-              child: Text('Günün Menüsü'),
+                Positioned.fill(
+                  child: Align(
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(8),
+                          bottomRight: Radius.circular(8),
+                        ),
+                        gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment(.2, 1.5),
+                          colors: [
+                            AppColors.orange,
+                            Colors.black12,
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const Positioned(
+                  top: 20,
+                  left: 20,
+                  child: Text(
+                    " Günün\nMenüsü",
+                    style: TextStyle(
+                      fontSize: 30,
+                      color: AppColors.light,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),
@@ -47,7 +95,7 @@ class _Home extends State<Home> {
                     height: MediaQuery.of(context).size.height * 0.15,
                   ),
                   const SizedBox(height: 20),
-                  AppForm.AppTextFormField(
+                  AppForm.appTextFormField(
                     hintText: 'Yemek ara...',
                     controller: searchController,
                     onSaved: (hello) => {},

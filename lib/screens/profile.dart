@@ -17,7 +17,12 @@ class Profile extends StatefulWidget {
 }
 
 class _Profile extends State<Profile> {
-  List<Widget> contents = [ProfileRecipe(), ProfileLikes(), ProfileMenu(), ProfileBio()];
+  List<Widget> contents = [
+    ProfileRecipe(),
+    ProfileLikes(),
+    ProfileMenu(),
+    ProfileBio()
+  ];
   List<bool> isSelected = [false, false, false];
   final _auth = FirebaseAuth.instance;
   int currentContentIndex = 3;

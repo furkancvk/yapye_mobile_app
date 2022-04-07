@@ -12,7 +12,12 @@ class App extends StatefulWidget {
 }
 
 class _App extends State<App> {
-  List<Widget> screens = [Home(), ShoppingList(), Profile()];
+  List<Widget> screens = const [
+    Home(),
+    ShoppingList(),
+    Profile(),
+  ];
+
   int _currentIndex = 0;
 
   @override

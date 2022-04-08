@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../constants.dart';
 import '../widgets/app_cards.dart';
 import '../widgets/app_form.dart';
 
@@ -14,157 +15,120 @@ class ShoppingList extends StatefulWidget {
 
 class _ShoppingList extends State<ShoppingList> {
   bool isSwitched = false;
-  TextEditingController searchController = TextEditingController();
+  final TextEditingController _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    void onSavedAppTextFormField(String? newValue) {
-      print("Aranan Yemek:  " + searchController.text);
-    }
-
-    void dispose() {
-      searchController.dispose();
-      super.dispose();
-    }
-
     return SafeArea(
-        child: Scaffold(
-            body: ListView(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              AppForm.appTextFormField(
-                hintText: 'Yemeğe göre malzeme ara...',
-                controller: searchController,
-                onSaved: onSavedAppTextFormField,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'yemek ismi',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 13,
-                      color: Color.fromRGBO(13, 13, 13, 0.4),
-                    ),
+      child: Scaffold(
+        body: ListView(
+          padding: const EdgeInsets.all(20),
+          children: [
+            AppForm.appSearchField(
+              hintText: isSwitched
+                  ? "Malzeme ismi ile ara..."
+                  : "Yemek ismi ile ara...",
+              controller: _searchController,
+              onSaved: (hello) => {},
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  'yemek İsmi',
+                  style: TextStyle(
+                    color: AppColors.dark.withOpacity(.4),
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700,
                   ),
-                  Switch(
-                      activeColor: Color.fromRGBO(242, 135, 5, 1),
-                      value: isSwitched,
-                      onChanged: (value) {
-                        setState(() {
-                          isSwitched = value;
-                          print("31");
-                        });
-                      }),
-                  Text(
-                    'malzeme ismi',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 13,
-                      color: Color.fromRGBO(13, 13, 13, 0.4),
-                    ),
+                ),
+                Switch(
+                  value: isSwitched,
+                  onChanged: (value) {
+                    setState(() {
+                      isSwitched = value;
+                    });
+                  },
+                  activeTrackColor: Colors.orangeAccent,
+                  activeColor: AppColors.orange,
+                ),
+                Text(
+                  'malzeme İsmi',
+                  style: TextStyle(
+                    color: AppColors.dark.withOpacity(.4),
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700,
                   ),
-                ],
-              ),
-              SizedBox(height: 20),
-              Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      AppForm.appTextButtonIcon(
-                          icon: Icon(Icons.add, color: Colors.orange),
-                          label: 'Domates',
-                          onPressed: () => print('31')),
-                      AppForm.appTextButtonIcon(
-                          icon: Icon(Icons.add, color: Colors.orange),
-                          label: 'Patates',
-                          onPressed: () => print('31')),
-                      AppForm.appTextButtonIcon(
-                          icon: Icon(Icons.add, color: Colors.orange),
-                          label: 'Süt 1L',
-                          onPressed: () => print('31')),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      AppForm.appTextButtonIcon(
-                          icon: Icon(Icons.add, color: Colors.orange),
-                          label: 'Patlıcan',
-                          onPressed: () => print('31')),
-                      AppForm.appTextButtonIcon(
-                          icon: Icon(Icons.add, color: Colors.orange),
-                          label: 'Su 5L',
-                          onPressed: () => print('31')),
-                      AppForm.appTextButtonIcon(
-                          icon: Icon(Icons.add, color: Colors.orange),
-                          label: 'Yeşil Biber',
-                          onPressed: () => print('31')),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      AppForm.appTextButtonIcon(
-                          icon: Icon(Icons.add, color: Colors.orange),
-                          label: 'Maydanoz',
-                          onPressed: () => print('31')),
-                      AppForm.appTextButtonIcon(
-                          icon: Icon(Icons.add, color: Colors.orange),
-                          label: 'Toz Şeker',
-                          onPressed: () => print('31')),
-                      AppForm.appTextButtonIcon(
-                          icon: Icon(Icons.add, color: Colors.orange),
-                          label: 'Un',
-                          onPressed: () => print('31')),
-                    ],
-                  ),
-                ],
-              ),
-              AppCards.ShoppingListCard(
-                  name: "Domates",
-                  type: "Sebze",
-                  price: "10 TL",
-                  market: "BİM",
-                  image:
-                      "https://tariflerleyemekler.com/yemek/barbeku-soslu-tavuk.webp"),
-              AppCards.ShoppingListCard(
-                  name: "Domates",
-                  type: "Sebze",
-                  price: "10 TL",
-                  market: "BİM",
-                  image:
-                      "https://tariflerleyemekler.com/yemek/barbeku-soslu-tavuk.webp"),
-              AppCards.ShoppingListCard(
-                  name: "Domates",
-                  type: "Sebze",
-                  price: "10 TL",
-                  market: "BİM",
-                  image:
-                      "https://tariflerleyemekler.com/yemek/barbeku-soslu-tavuk.webp"),
-              AppCards.ShoppingListCard(
-                  name: "Domates",
-                  type: "Sebze",
-                  price: "10 TL",
-                  market: "BİM",
-                  image:
-                      "https://tariflerleyemekler.com/yemek/barbeku-soslu-tavuk.webp"),
-              AppCards.ShoppingListCard(
-                  name: "Domates",
-                  type: "Sebze",
-                  price: "10 TL",
-                  market: "BİM",
-                  image:
-                      "https://tariflerleyemekler.com/yemek/barbeku-soslu-tavuk.webp"),
-            ],
-          ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    AppCards.shoppingListChip("Domates", false),
+                    AppCards.shoppingListChip("Patates", true),
+                    AppCards.shoppingListChip("Süt 1L", false),
+                    AppCards.shoppingListChip("Salata", false),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    AppCards.shoppingListChip("Patlıcan", true),
+                    AppCards.shoppingListChip("Su 5L", false),
+                    AppCards.shoppingListChip("Yeşil Biber", false),
+                    AppCards.shoppingListChip("Tereyağ", false),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    AppCards.shoppingListChip("Maydanoz", true),
+                    AppCards.shoppingListChip("Toz Şeker 1kg", false),
+                    AppCards.shoppingListChip("Un 5kg", false),
+                    AppCards.shoppingListChip("Bal", false),
+                  ],
+                ),
+              ],
+            ),
+            AppCards.shoppingListCard(
+              name: "Patates",
+              type: "Sebze",
+              price: "15 TL",
+              market: "ŞOK",
+              image:
+                  "https://images.pexels.com/photos/7774212/pexels-photo-7774212.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            ),
+            AppCards.shoppingListCard(
+              name: "Patlıcan",
+              type: "Sebze",
+              price: "6 TL",
+              market: "BİM",
+              image:
+                  "https://images.pexels.com/photos/5529605/pexels-photo-5529605.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            ),
+            AppCards.shoppingListCard(
+              name: "Maydanoz",
+              type: "Sebze",
+              price: "6 TL",
+              market: "Şehzade",
+              image:
+                  "https://images.pexels.com/photos/1275204/pexels-photo-1275204.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+            ),
+            AppCards.shoppingListCard(
+              name: "Domates",
+              type: "Sebze",
+              price: "10 TL",
+              market: "BİM",
+              image:
+                  "https://images.pexels.com/photos/5945657/pexels-photo-5945657.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+            ),
+          ],
         ),
-      ],
-    )));
+      ),
+    );
   }
 }

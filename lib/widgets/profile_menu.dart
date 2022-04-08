@@ -8,7 +8,15 @@ class ProfileMenu extends StatefulWidget {
 }
 
 class _ProfileMenu extends State<ProfileMenu> {
-  List<bool> _isExpanded = [false, false, false, false, false, false, false];
+  final List<bool> _isExpanded = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +28,7 @@ class _ProfileMenu extends State<ProfileMenu> {
       },
       children: [
         ExpansionPanel(
+          canTapOnHeader: true,
           headerBuilder: (BuildContext context, bool isExpanded) {
             return const ListTile(
               title: Text(
@@ -38,6 +47,7 @@ class _ProfileMenu extends State<ProfileMenu> {
           isExpanded: _isExpanded[0],
         ),
         ExpansionPanel(
+          canTapOnHeader: true,
           headerBuilder: (BuildContext context, bool isExpanded) {
             return const ListTile(
               title: Text(
@@ -56,6 +66,7 @@ class _ProfileMenu extends State<ProfileMenu> {
           isExpanded: _isExpanded[1],
         ),
         ExpansionPanel(
+          canTapOnHeader: true,
           headerBuilder: (BuildContext context, bool isExpanded) {
             return const ListTile(
               title: Text(
@@ -74,6 +85,7 @@ class _ProfileMenu extends State<ProfileMenu> {
           isExpanded: _isExpanded[2],
         ),
         ExpansionPanel(
+          canTapOnHeader: true,
           headerBuilder: (BuildContext context, bool isExpanded) {
             return const ListTile(
               title: Text(
@@ -92,6 +104,7 @@ class _ProfileMenu extends State<ProfileMenu> {
           isExpanded: _isExpanded[3],
         ),
         ExpansionPanel(
+          canTapOnHeader: true,
           headerBuilder: (BuildContext context, bool isExpanded) {
             return const ListTile(
               title: Text(
@@ -110,6 +123,7 @@ class _ProfileMenu extends State<ProfileMenu> {
           isExpanded: _isExpanded[4],
         ),
         ExpansionPanel(
+          canTapOnHeader: true,
           headerBuilder: (BuildContext context, bool isExpanded) {
             return const ListTile(
               title: Text(
@@ -128,6 +142,7 @@ class _ProfileMenu extends State<ProfileMenu> {
           isExpanded: _isExpanded[5],
         ),
         ExpansionPanel(
+          canTapOnHeader: true,
           headerBuilder: (BuildContext context, bool isExpanded) {
             return const ListTile(
               title: Text(

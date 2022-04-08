@@ -20,7 +20,7 @@ class _Profile extends State<Profile> {
   List<Widget> contents = [
     ProfileRecipe(),
     ProfileLikes(),
-    ProfileMenu(),
+    const ProfileMenu(),
     ProfileBio()
   ];
   List<bool> isSelected = [false, false, false];
@@ -29,7 +29,12 @@ class _Profile extends State<Profile> {
 
   void logout() async {
     await _auth.signOut();
-    Navigator.push(context, MaterialPageRoute(builder: (context) => Welcome()));
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const Welcome(),
+      ),
+    );
   }
 
   @override
@@ -54,6 +59,11 @@ class _Profile extends State<Profile> {
             const SizedBox(height: 20),
             const CircleAvatar(
               minRadius: 60,
+              backgroundColor: AppColors.dark,
+              child: Icon(
+                Icons.person_rounded,
+                size: 60,
+              ),
             ),
             const SizedBox(height: 20),
             Column(
@@ -66,9 +76,10 @@ class _Profile extends State<Profile> {
                   ),
                 ),
                 const Text(
-                  "the level of the user",
+                  "59 level gurme",
                   style: TextStyle(
                     fontSize: 14,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ],

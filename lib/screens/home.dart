@@ -76,7 +76,7 @@ class _Home extends State<Home> {
                           fontWeight: FontWeight.bold,
                           shadows: [
                             Shadow(
-                              color: AppColors.dark,
+                              color: AppColors.orangeAccent,
                               offset: Offset(0, 2),
                               blurRadius: 10,
                             ),

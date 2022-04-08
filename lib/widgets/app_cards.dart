@@ -3,7 +3,35 @@ import 'package:yapye_mobile_app/constants.dart';
 import 'package:yapye_mobile_app/screens/recipe.dart';
 
 class AppCards {
-  static Widget ShoppingListCard({
+  static Widget shoppingListChip(String label, bool isSelected) {
+    return Chip(
+      avatar: isSelected
+          ? const Icon(
+              Icons.check,
+              color: AppColors.light,
+            )
+          : null,
+      backgroundColor: isSelected ? AppColors.orange : Colors.transparent,
+      shape: !isSelected
+          ? RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(40),
+              side: BorderSide(
+                color: AppColors.dark.withOpacity(.2),
+                width: 2,
+              ),
+            )
+          : null,
+      label: Text(
+        label,
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          color: isSelected ? AppColors.light : AppColors.dark.withOpacity(.4),
+        ),
+      ),
+    );
+  }
+
+  static Widget shoppingListCard({
     String name = "name",
     String type = "type",
     String price = "price",
@@ -89,17 +117,16 @@ class AppCards {
     );
   }
 
-  static Widget homeCategoryCard(String name) {
-    return Card(
-      color: AppColors.orange,
-      child: Padding(
-        padding: const EdgeInsets.all(6.0),
+  static Widget homeCategoryCard(String category) {
+    return Container(
+      margin: const EdgeInsets.only(right: 10),
+      child: ElevatedButton(
+        onPressed: () {},
         child: Text(
-          name,
-          style: TextStyle(
-            fontSize: 14,
+          category,
+          style: const TextStyle(
             color: AppColors.light,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),
@@ -226,7 +253,7 @@ class AppCards {
                   fontSize: 23,
                   shadows: [
                     Shadow(
-                      color: AppColors.dark,
+                      color: AppColors.orangeAccent,
                       offset: Offset(0, 2),
                       blurRadius: 10,
                     ),

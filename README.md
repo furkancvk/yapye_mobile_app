@@ -1,7 +1,7 @@
 # **Yap-ye: Yemek Tarifleri ve Alışveriş Listesi Uygulaması**
 Yap-ye, insanlara yemek tarifleri önermek ve alışveriş listeleri yapmalarına yardımcı olmak amacıyla geliştirilen kullanıcı dostu bir mobil uygulamadır. Uygulama, Dart ve Flutter teknolojileri kullanılarak geliştirilmiştir ve ekip çalışmasıyla oluşturulmuştur.
 
-![Yapyee](https://github.com/furkancvk/yapye_mobile_app/assets/96663769/4095e981-288a-4e5e-8744-c290c9ec8706)
+![Yapyee](https://github.com/furkancvk/yapye_mobile_app/assets/images/Yapyee.png)
 
 **Özellikler**
 - Yemek Tarifleri Önerme: Kullanıcılar, ilgi alanlarına göre çeşitli yemek tarifleri arasından seçim yapabilirler. Kullanıcı tercihlerini dikkate alarak, kişiselleştirilmiş tarif önerileri sunar.

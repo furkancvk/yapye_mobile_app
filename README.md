@@ -49,9 +49,6 @@ Yap-ye, insanlara yemek tarifleri önermek ve alışveriş listeleri yapmaların
 
 - **Sorun Takibi:** Projeyle ilgili yeni sorunlar keşfettiyseniz veya hata raporları alıyorsanız, bunları proje sorun takip sisteminde açarak ekibin diğer üyelerine bildirebilirsiniz.
 
-- **İletişim:** Projedeki ilerlemeler ve değişiklikler hakkında düzenli olarak iletişim halinde olun. Slack, Discord veya diğer iletişim araçlarını kullanarak ekip içi iletişimi destekleyin.
-
-[<img src="https://firebasestorage.googleapis.com/v0/b/my-first-project-5d32d.appspot.com/o/1690018553216?alt=media&token=53d2ca83-a1cb-4bd0-965b-e9b6a93c3c26" alt="Discord Shield"/>](https://discord.gg/8Uw674yC)
-
+- **İletişim:** Projedeki ilerlemeler ve değişiklikler hakkında düzenli olarak iletişim halinde olun. Slack, Discord veya diğer iletişim araçlarını kullanarak ekip içi iletişimi destekleyin.   [<img src="https://firebasestorage.googleapis.com/v0/b/my-first-project-5d32d.appspot.com/o/1690018553216?alt=media&token=53d2ca83-a1cb-4bd0-965b-e9b6a93c3c26" alt="Discord Shield"/>](https://discord.gg/8Uw674yC)
 
 - **Branch İsimlendirmesi:** Proje dallarını oluştururken açıklayıcı ve anlaşılır isimler seçmeye özen gösterin.

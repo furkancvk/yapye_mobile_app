@@ -36,6 +36,12 @@ Yap-ye, insanlara yemek tarifleri önermek ve alışveriş listeleri yapmaların
 
 - Lütfen pull isteğinizde yapılan değişiklikleri ayrıntılı bir şekilde açıklayın ve ekibin diğer üyeleriyle iletişim halinde olun.
 
+## Kurucular
+
+- [@OFD16](https://github.com/OFD16)
+- [@furkancvk](https://github.com/furkancvk)
+- [@tozlukozmos](https://github.com/tozlukozmos)
+
 # Ekip Çalışması
 - Yap-ye projesi bir ekip çalışmasıdır ve ekibimizin birlikte çalışması ve iletişimi büyük önem taşımaktadır. Aşağıda, projede birlikte çalışırken dikkate alınması gereken bazı yönergeler bulunmaktadır:
 
